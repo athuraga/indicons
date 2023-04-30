@@ -22,7 +22,7 @@ class LoginTest extends DuskTestCase
     public function login_with_valid_credentials()
     {
         $user = factory(User::class)->create();
-        $user->email = "student@gmail.com";
+        $user->email = "consultant@gmail.com";
 
         $this->browse(function ($browser) use ($user) {
             $browser->visit(new Login)

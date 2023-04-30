@@ -21,7 +21,7 @@
             On Going Project Since {{ startSince }}
           </p>
           <p class="details__ongoing--p">
-            Please contact your lecturer for your further information about the
+            Please contact your recruiter for your further information about the
             project.
           </p>
         </div>
@@ -66,7 +66,7 @@
             On Going Project Since {{ startSince }}
           </p> -->
           <p class="details__ongoing--p">
-            Please contact your lecturer for your further information about the
+            Please contact your recruiter for your further information about the
             project.
           </p>
         </div>
@@ -87,9 +87,9 @@
 
     <div class="desktop-details__body">
       <div class="project-details--main-body">
-        <div v-if="!$matchMedia.xl" class="project-details__lecturer-info">
-          <div class="lecturer-info--left">
-            <div class="lecturer-info--image-container mr-1">
+        <div v-if="!$matchMedia.xl" class="project-details__recruiter-info">
+          <div class="recruiter-info--left">
+            <div class="recruiter-info--image-container mr-1">
               <router-link
                 :to="{ path: '/@/' + project.user.tagname }"
                 class="lencturer-text-link"
@@ -108,7 +108,7 @@
               <div>{{ project.user.expertise }}</div>
             </div>
           </div>
-          <div class="lecturer-info--right">
+          <div class="recruiter-info--right">
             <span
               class="iconify"
               data-icon="dashicons:share"
@@ -208,8 +208,8 @@
         </div>
       </div>
       <div class="desktop__body--right">
-        <div v-if="$matchMedia.xl" class="lecturer-info--left">
-          <div class="lecturer-info--image-container mr-1">
+        <div v-if="$matchMedia.xl" class="recruiter-info--left">
+          <div class="recruiter-info--image-container mr-1">
             <router-link
               :to="{ path: '/@/' + project.user.tagname }"
               class="lencturer-text-link"
@@ -234,7 +234,7 @@
           tag="button"
           :disabled="isSelf"
         >
-          Contact Lecturer
+          Contact Recruiter
         </router-link>
         <div v-if="$matchMedia.xl" class="project-summary">
           <div class="details__share--container">

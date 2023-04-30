@@ -8,12 +8,12 @@
         </div>
 
         <div class="project-box__item--lecture-statuses">
-          <div class="project-box__item--status-lecturer">
+          <div class="project-box__item--status-recruiter">
             <span class="iconify" data-icon="ic:round-access-time" width="12" height="12" />
             <span>Not posted yet</span>
           </div>
-          <div class="project-box__item--status-lecturer">
-            <span class="project-box__item--lecturer-icon"><b>D</b></span>
+          <div class="project-box__item--status-recruiter">
+            <span class="project-box__item--recruiter-icon"><b>D</b></span>
             <span>Draft</span>
           </div>
         </div>
@@ -162,7 +162,7 @@ export default {
     },
 
     async publishProject () {
-      if (this.user.role === 'Lecturer') {
+      if (this.user.role === 'Recruiter') {
         await axios.post('/api/projectbox/' + this.data.project.project_url + '/publish').then(({ data }) => {
           this.snackbar.open(data.message)
           this.$store.dispatch('notification/updateProjectBox', {
@@ -173,7 +173,7 @@ export default {
     },
 
     async cancelProject () {
-      if (this.user.role === 'Lecturer') {
+      if (this.user.role === 'Recruiter') {
         await axios.post('/api/projectbox/' + this.data.project.project_url + '/cancel').then(({ data }) => {
           this.snackbar.open(data.message)
           this.$store.dispatch('notification/updateProjectBox', {

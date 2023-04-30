@@ -360,7 +360,7 @@ import RequirementItem from '~/components/RequirementItem'
 export default {
   name: 'EditPostedProject',
   layout: 'back',
-  middleware: ['auth', 'lecturer'],
+  middleware: ['auth', 'recruiter'],
   components: { RequirementItem },
 
   metaInfo () { return { title: 'Edit Posted Project' } },

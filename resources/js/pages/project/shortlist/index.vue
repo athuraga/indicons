@@ -21,7 +21,7 @@
         <div v-if="!$matchMedia.xl" class="separator-short mb-1" />
 
         <h3 class="shortlisted--h3 mt-3">
-          Shortlisted Student
+          Shortlisted Consultant
         </h3>
       </div>
     </div>
@@ -51,7 +51,7 @@
     </div>
 
     <!-- <router-link :to=" { path: '/' }" class="btn btn--blue btn--large" tag="button"> -->
-    <button class="btn btn--blue btn--large btn__small--xl mx-auto" @click="acceptStudents">
+    <button class="btn btn--blue btn--large btn__small--xl mx-auto" @click="acceptConsultants">
       Proceed
     </button>
     <!-- </router-link> -->
@@ -65,7 +65,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'ShortlistIndex',
   layout: 'back',
-  middleware: ['auth', 'lecturer'],
+  middleware: ['auth', 'recruiter'],
   // components: { ShortlistIndividual },
 
   metaInfo () { return { title: 'Applicant Shortlist' } },
@@ -102,19 +102,19 @@ export default {
       })
     },
 
-    async acceptStudents () {
-      const acceptedStudents = {
+    async acceptConsultants () {
+      const acceptedConsultants = {
         individuals: this.individuals.filter(e => e.isAccepted === true),
         teams: this.teams.filter(e => e.isAccepted === true)
       }
 
-      if (acceptedStudents.individuals.length === 0 && acceptedStudents.teams.length === 0) {
+      if (acceptedConsultants.individuals.length === 0 && acceptedConsultants.teams.length === 0) {
         return this.$router.push({ name: 'projectbox' })
       }
 
       await axios.post('/api/project/' + this.$route.params.id + '/shortlist', {
-        'individuals': acceptedStudents.individuals,
-        'teams': acceptedStudents.teams
+        'individuals': acceptedConsultants.individuals,
+        'teams': acceptedConsultants.teams
       })
         .then(({ data }) => {
           this.snackbar.open(data.message)

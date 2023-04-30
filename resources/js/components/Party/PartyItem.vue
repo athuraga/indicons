@@ -26,7 +26,7 @@
 
         <template v-slot:footer>
         <!-- <button class="btn btn--blue ml-auto" :disabled="disableShortlist" @click="showShortlist">
-          Shortlist Student
+          Shortlist Consultant
         </button> -->
         </template>
       </modal>

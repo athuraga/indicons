@@ -12,7 +12,7 @@
           </p>
           <p class="inbox__info--occupation">
             {{ user.major }}
-            <!-- <span v-if="user.role === 'Student'">
+            <!-- <span v-if="user.role === 'Consultant'">
               Major
             </span> -->
             <br>
@@ -26,12 +26,12 @@
             {{ user.expertise }}
           </p>
 
-          <p v-if="user.role === 'Student'" class="inbox__info--available">
+          <p v-if="user.role === 'Consultant'" class="inbox__info--available">
             <span class="iconify inbox__info--expertise-icon" data-icon="carbon:dot-mark" />
             Available
           </p>
 
-          <p v-else-if="user.role === 'Lecturer'" class="inbox__info--verified">
+          <p v-else-if="user.role === 'Recruiter'" class="inbox__info--verified">
             <span class="iconify" data-icon="bi:shield-fill-check" width="15" height="15" />
             Verified
           </p>
@@ -64,7 +64,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'PartyIndex',
 
-  middleware: ['auth', 'student'],
+  middleware: ['auth', 'consultant'],
 
   data: () => ({
     isLeader: true

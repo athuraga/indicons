@@ -142,14 +142,14 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
         return $this->hasMany('App\Project');
     }
 
-    public function student()
+    public function consultant()
     {
-        return $this->hasOne('App\Student');
+        return $this->hasOne('App\Consultant');
     }
 
-    public function lecturer()
+    public function recruiter()
     {
-        return $this->hasOne('App\Lecturer');
+        return $this->hasOne('App\Recruiter');
     }
 
     public function inboxes()

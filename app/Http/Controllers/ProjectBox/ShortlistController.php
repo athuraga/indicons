@@ -35,7 +35,7 @@ class ShortlistController extends Controller
     {
         $this->authorize('owner', $project);
 
-        $lecturer = $request->user();
+        $recruiter = $request->user();
 
         $individuals = $request->post('individuals');
         $teams = $request->post('teams');
@@ -62,13 +62,13 @@ class ShortlistController extends Controller
             ->whereIn('user_id', [...$individuals_id, ...$teams_id])
             ->update(['status' => 'Accepted']);
 
-        ProjectBox::where(['project_id' => $project->id, 'user_id' => $lecturer->id])
+        ProjectBox::where(['project_id' => $project->id, 'user_id' => $recruiter->id])
             ->update(['status' => 'Confirmation']);
 
-        $projectBoxes = ProjectBox::lecturerProjectBoxes($lecturer);
+        $projectBoxes = ProjectBox::recruiterProjectBoxes($recruiter);
 
         return response()->json([
-            'message' => 'You accepted these students',
+            'message' => 'You accepted these consultants',
             'project_boxes' => $projectBoxes,
         ]);
     }

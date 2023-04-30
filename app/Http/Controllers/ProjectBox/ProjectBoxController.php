@@ -11,8 +11,8 @@ class ProjectBoxController extends Controller
     public function index(Request $request)
     {
         $user = $request->user();
-        if ($user->role === 'Lecturer') {
-            $projectBoxes = ProjectBox::lecturerProjectBoxes($user);
+        if ($user->role === 'Recruiter') {
+            $projectBoxes = ProjectBox::recruiterProjectBoxes($user);
 
             return response()->json([
                 'project_boxes' => $projectBoxes,

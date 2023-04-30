@@ -11,8 +11,8 @@
     </div>
 
     <div class="user__action--container">
-      <template v-if="data.user.role === 'Student'">
-        <button v-if="user && user.role === 'Lecturer'" class="btn action--button btn--blue" :disabled="isSelf || !data.user.is_open_hired" @click="showOwnProjects">
+      <template v-if="data.user.role === 'Consultant'">
+        <button v-if="user && user.role === 'Recruiter'" class="btn action--button btn--blue" :disabled="isSelf || !data.user.is_open_hired" @click="showOwnProjects">
           Invite To Project
         </button>
         <button v-else class="btn action--button btn--blue" :disabled="isSelf" @click="inviteToTeam">
@@ -24,7 +24,7 @@
       </template>
       <template v-else>
         <router-link :to="{ name: 'message', params: { tagname: this.$route.params.tagname } }" class="btn action--button btn--white" tag="button" :disabled="isSelf">
-          Contact Lecturer
+          Contact Recruiter
         </router-link>
       </template>
     </div>
@@ -109,7 +109,7 @@ export default {
     }),
 
     tabs () {
-      if (this.data.user.role === 'Student') {
+      if (this.data.user.role === 'Consultant') {
         return [
           { name: 'Projects', route: '@.projects' },
           { name: 'Wishlist', route: '@.wishlist' },

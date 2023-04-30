@@ -76,7 +76,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'ApplyIndividualPage',
 
-  middleware: ['auth', 'student'],
+  middleware: ['auth', 'consultant'],
 
   metaInfo () { return { title: 'Apply - Individual' } },
 

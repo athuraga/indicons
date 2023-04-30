@@ -7,7 +7,7 @@ use App\Project;
 use App\Wishlist;
 use Illuminate\Http\Request;
 
-class ProjectStudentController extends Controller
+class ProjectConsultantController extends Controller
 {
     public function addToWishlist(Request $request, Project $project)
     {

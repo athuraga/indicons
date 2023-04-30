@@ -64,7 +64,7 @@
                 <div>&bull; Posted {{ getHumanDate(project.created_at) }}</div>
                 <div>&bull; Max. {{ project.max_person }} Person</div>
               </div>
-              <button v-if="$matchMedia.xl && (!user || user.role === 'Student' )" class="btn--clear" @click="showWishlist">
+              <button v-if="$matchMedia.xl && (!user || user.role === 'Consultant' )" class="btn--clear" @click="showWishlist">
                 <span class="iconify project-card__wish" data-icon="mdi:dots-horizontal" width="22" />
               </button>
               <div v-show="showWish" class="card-wish__container">

@@ -119,7 +119,7 @@ export default {
     return {
       title: 'Home',
       meta: [
-        { name: 'description', content: 'PHive: Freelancer Platform for Students. Expand your career by doing projects.' }
+        { name: 'description', content: 'PHive: Freelancer Platform for Consultants. Expand your career by doing projects.' }
       ]
     }
   },

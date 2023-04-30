@@ -16,7 +16,7 @@
 
         <div v-if="$matchMedia.xl">
           <p class="project-box__item--p">
-            You have been shortlisted, the system will automatically accept you once the lecturer agree to start the project.
+            You have been shortlisted, the system will automatically accept you once the recruiter agree to start the project.
           </p>
         </div>
         <div v-else class="project-box__details--container" @click="showDetails">
@@ -31,7 +31,7 @@
     <!-- Mobile User -->
     <div v-show="show && !$matchMedia.xl" class="mt-2">
       <p class="project-box__item--p">
-        You have been shortlisted, the system will automatically accept you once the lecturer agree to start the project.
+        You have been shortlisted, the system will automatically accept you once the recruiter agree to start the project.
       </p>
     </div>
   </div>
@@ -72,7 +72,7 @@ export default {
     }),
 
     status () {
-      if (this.role === 'Student') {
+      if (this.role === 'Consultant') {
         if (this.data.status === 'Waiting') return { icon: 'ant-design:field-time-outlined', text: 'Waiting' }
         if (this.data.status === 'Accepted') return { icon: 'bi:shield-fill-check', text: 'Accepted' }
         if (this.data.status === 'Rejected') return { icon: 'ic:round-block', text: 'Rejected' }
@@ -112,7 +112,7 @@ export default {
       this.candidates.agree = this.candidates.fixes.length
     }
 
-    if (this.role === 'Lecturer') {
+    if (this.role === 'Recruiter') {
       const date = new Date(this.data.created_at)
       let options = { day: 'numeric', year: 'numeric', month: 'long' }
       this.date = date.toLocaleString('en-US', options)
@@ -155,7 +155,7 @@ export default {
     },
 
     async startProject () {
-      if (this.role === 'Lecturer') {
+      if (this.role === 'Recruiter') {
         await axios.post('/api/projectbox/start', {
           project_id: this.data.project_id
         }).then(({ data }) => {

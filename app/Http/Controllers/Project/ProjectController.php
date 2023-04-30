@@ -12,7 +12,7 @@ class ProjectController extends Controller
     {
         $user = $request->user();
 
-        if ($user && $user->role === 'Student') {
+        if ($user && $user->role === 'Consultant') {
             $projects = Project::with(['user:id,tagname,first_name,last_name,photo_url,email', 'is_wished' =>
                 function ($q) use ($user) {
                     $q->where('wishlists.user_id', $user->id);
@@ -66,7 +66,7 @@ class ProjectController extends Controller
             else if ($expertise === 'Backend Engineer') {$expertise = 'back_end_engineer';}
             else if ($expertise === 'Data Expert') {$expertise = 'data_expert';}
 
-            if ($user && $user->role === 'Student') {
+            if ($user && $user->role === 'Consultant') {
                 $other_projects = Project::with(['user:id,tagname,first_name,last_name,photo_url,email', 'is_wished' =>
                     function ($q) use ($user) {
                         $q->where('wishlists.user_id', $user->id);

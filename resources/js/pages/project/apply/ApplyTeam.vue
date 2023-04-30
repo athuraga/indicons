@@ -97,7 +97,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'ApplyTeamPage',
 
-  middleware: ['auth', 'student'],
+  middleware: ['auth', 'consultant'],
 
   metaInfo () { return { title: 'Apply - Team' } },
 

@@ -31,32 +31,32 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('project/{project:project_url}/apply/individual', 'Project\ApplyController@applyAsIndividual');
     Route::post('project/{project:project_url}/apply/team', 'Project\ApplyController@applyAsTeam');
 
-    Route::post('project/{project:project_url}/wishlist', 'Project\ProjectStudentController@addToWishlist');
+    Route::post('project/{project:project_url}/wishlist', 'Project\ProjectConsultantController@addToWishlist');
 
-    Route::post('project/{project:project_url}/save', 'Project\ProjectLecturerController@updateProject');
-    Route::post('project/post', 'Project\ProjectLecturerController@postProject');
-    Route::post('project/thumbnail', 'Project\ProjectLecturerController@uploadTempThumbnail');
-    Route::delete('project/thumbnail', 'Project\ProjectLecturerController@deleteTempThumbnail');
-    Route::post('project/{project:project_url}/thumbnail', 'Project\ProjectLecturerController@uploadThumbnail');
-    Route::delete('project/{project:project_url}/thumbnail', 'Project\ProjectLecturerController@deleteThumbnail');
-    Route::post('user/{user:tagname}/invite/project', 'Project\ProjectLecturerController@inviteToProject');
+    Route::post('project/{project:project_url}/save', 'Project\ProjectRecruiterController@updateProject');
+    Route::post('project/post', 'Project\ProjectRecruiterController@postProject');
+    Route::post('project/thumbnail', 'Project\ProjectRecruiterController@uploadTempThumbnail');
+    Route::delete('project/thumbnail', 'Project\ProjectRecruiterController@deleteTempThumbnail');
+    Route::post('project/{project:project_url}/thumbnail', 'Project\ProjectRecruiterController@uploadThumbnail');
+    Route::delete('project/{project:project_url}/thumbnail', 'Project\ProjectRecruiterController@deleteThumbnail');
+    Route::post('user/{user:tagname}/invite/project', 'Project\ProjectRecruiterController@inviteToProject');
 
     Route::get('project/{project:project_url}/review', 'ProjectBox\ReviewController@show');
     Route::post('project/{project:project_url}/review', 'ProjectBox\ReviewController@postReview');
 
     Route::get('inbox', 'Inbox\InboxController@index');
-    Route::post('inbox/invitation/team', 'Inbox\InboxStudentController@acceptTeamInvitation');
-    Route::post('inbox/invitation/project', 'Inbox\InboxStudentController@acceptProjectInvitation');
+    Route::post('inbox/invitation/team', 'Inbox\InboxConsultantController@acceptTeamInvitation');
+    Route::post('inbox/invitation/project', 'Inbox\InboxConsultantController@acceptProjectInvitation');
 
     Route::get('projectbox', 'ProjectBox\ProjectBoxController@index');
-    Route::post('projectbox/confirmation', 'ProjectBox\ProjectBoxStudentController@confirmProject');
+    Route::post('projectbox/confirmation', 'ProjectBox\ProjectBoxConsultantController@confirmProject');
 
-    Route::post('projectbox/start', 'ProjectBox\ProjectBoxLecturerController@startProject');
-    Route::post('projectbox/cancelProjectInvitation', 'ProjectBox\ProjectBoxLecturerController@cancelProjectInvitation');
-    Route::post('projectbox/{project:project_url}/publish', 'ProjectBox\ProjectBoxLecturerController@publishProject');
-    Route::post('projectbox/{project:project_url}/cancel', 'ProjectBox\ProjectBoxLecturerController@cancelProject');
-    Route::post('projectbox/{project:project_url}/terminate', 'ProjectBox\ProjectBoxLecturerController@terminateProject');
-    Route::post('projectbox/{project:project_url}/endapplication', 'ProjectBox\ProjectBoxLecturerController@endApplication');
+    Route::post('projectbox/start', 'ProjectBox\ProjectBoxRecruiterController@startProject');
+    Route::post('projectbox/cancelProjectInvitation', 'ProjectBox\ProjectBoxRecruiterController@cancelProjectInvitation');
+    Route::post('projectbox/{project:project_url}/publish', 'ProjectBox\ProjectBoxRecruiterController@publishProject');
+    Route::post('projectbox/{project:project_url}/cancel', 'ProjectBox\ProjectBoxRecruiterController@cancelProject');
+    Route::post('projectbox/{project:project_url}/terminate', 'ProjectBox\ProjectBoxRecruiterController@terminateProject');
+    Route::post('projectbox/{project:project_url}/endapplication', 'ProjectBox\ProjectBoxRecruiterController@endApplication');
 
     Route::get('project/{project:project_url}/shortlist', 'ProjectBox\ShortlistController@index');
     Route::post('project/{project:project_url}/shortlist', 'ProjectBox\ShortlistController@proceedShortlist');

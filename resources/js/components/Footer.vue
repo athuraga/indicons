@@ -7,7 +7,7 @@
           &copy; 2020
         </p>
         <p v-if="$matchMedia.xl">
-          Expanding Student’s Career by doing projects from their lecturer will give them a lot of benefits, our values is giving the same opportunity to all students who wants to get an experience working on project.
+          Expanding Consultant’s Career by doing projects from their recruiter will give them a lot of benefits, our values is giving the same opportunity to all consultants who wants to get an experience working on project.
         </p>
       </div>
 

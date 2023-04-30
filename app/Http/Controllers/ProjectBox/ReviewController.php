@@ -15,9 +15,9 @@ class ReviewController extends Controller
 {
     public function show(Request $request, Project $project)
     {
-        $lecturer = $request->user();
+        $recruiter = $request->user();
 
-        if ($lecturer->id === $project->user_id) {
+        if ($recruiter->id === $project->user_id) {
             $projectParticipants = ProjectTeam::with('members.member:id,tagname,first_name,last_name,photo_url,email')->where('project_id', $project->id)->firstOrFail();
 
             return response()->json([

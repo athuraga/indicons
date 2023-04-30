@@ -47,21 +47,21 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        if ($data['role'] === 'Lecturer') {
+        if ($data['role'] === 'Recruiter') {
             return Validator::make($data, [
                 'first_name' => 'required|max:255',
                 'last_name' => 'max:255',
-                'role' => 'required|max:255|in:Student,Lecturer',
-                'email' => 'required|email|max:255|unique:users|regex:/^[a-zA-Z0-9.]+@(?!.*(student)).*.ac.id.*$/',
+                'role' => 'required|max:255|in:Consultant,Recruiter',
+                'email' => 'required|email|max:255|unique:users|regex:/^[a-zA-Z0-9.]+@(?!.*(consultant)).*.ac.id.*$/',
                 'password' => 'required|min:8',
             ], [
-                'email.regex' => 'You were using student academic email address or not using an academic email at all.'
+                'email.regex' => 'You were using consultant academic email address or not using an academic email at all.'
             ]);
         } else {
             return Validator::make($data, [
                 'first_name' => 'required|max:255',
                 'last_name' => 'max:255',
-                'role' => 'required|max:255|in:Student,Lecturer',
+                'role' => 'required|max:255|in:Consultant,Recruiter',
                 'email' => 'required|email|max:255|unique:users',
                 'password' => 'required|min:8',
             ]);

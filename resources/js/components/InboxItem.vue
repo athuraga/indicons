@@ -2,7 +2,7 @@
   <div class="project-box__container">
     <InboxItemMessage v-if="data.category === 'Message'" :data="data" />
 
-    <template v-else-if="user.role === 'Student'">
+    <template v-else-if="user.role === 'Consultant'">
       <InboxItemAcceptProject v-if="data.category === 'Project Invitation'" :data="data" />
       <InboxItemAcceptTeam v-else-if="data.category === 'Team Invitation'" :data="data" />
     </template>

@@ -8,7 +8,7 @@ use App\ProjectBox;
 use App\TeamApplicant;
 use Illuminate\Http\Request;
 
-class ProjectBoxStudentController extends Controller
+class ProjectBoxConsultantController extends Controller
 {
     public function confirmProject(Request $request)
     {

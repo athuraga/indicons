@@ -14,7 +14,7 @@ use App\TeamInvitation;
 use App\TeamMember;
 use Illuminate\Http\Request;
 
-class InboxStudentController extends Controller
+class InboxConsultantController extends Controller
 {
     public function acceptTeamInvitation(Request $request)
     {

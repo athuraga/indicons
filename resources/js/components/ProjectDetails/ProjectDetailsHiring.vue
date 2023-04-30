@@ -22,7 +22,7 @@
           <router-link class="btn btn--blue btn--large" :to="{ name: applyRoute, params: { title: project.title , type: project.applicant_type } }" tag="button" :disabled="!isEligibleToApply">
             Apply Project
           </router-link>
-          <button v-debounce:300ms="toggleWishlist" :debounce-events="'click'" class="btn btn--white btn--large" :disabled="user && user.role === 'Lecturer'">
+          <button v-debounce:300ms="toggleWishlist" :debounce-events="'click'" class="btn btn--white btn--large" :disabled="user && user.role === 'Recruiter'">
             <div v-show="project.is_wished && project.is_wished.status" class="flex">
               <span class="iconify" data-icon="ic:round-remove-circle-outline" width="24" height="24" />
             </div>
@@ -44,7 +44,7 @@
           <router-link class="btn btn--blue btn--large" :to="{ name: applyRoute, params: { title: project.title , type: project.applicant_type } }" tag="button" :disabled="!isEligibleToApply" @click="nyoba">
             Apply Project
           </router-link>
-          <button v-debounce:400ms="toggleWishlist" class="btn btn--white btn--large" :disabled="user && user.role === 'Lecturer'" :debounce-events="'click'">
+          <button v-debounce:400ms="toggleWishlist" class="btn btn--white btn--large" :disabled="user && user.role === 'Recruiter'" :debounce-events="'click'">
             <div v-show="project.is_wished && project.is_wished.status" class="flex">
               <span class="iconify" data-icon="ic:round-remove-circle-outline" width="24" height="24" />
             </div>
@@ -67,9 +67,9 @@
 
     <div class="desktop-details__body">
       <div class="project-details--main-body">
-        <div v-if="!$matchMedia.xl" class="project-details__lecturer-info">
-          <div class="lecturer-info--left">
-            <div class="lecturer-info--image-container mr-1">
+        <div v-if="!$matchMedia.xl" class="project-details__recruiter-info">
+          <div class="recruiter-info--left">
+            <div class="recruiter-info--image-container mr-1">
               <router-link :to="{ path: '/@/' + project.user.tagname }" class="lencturer-text-link">
                 <img :src="project.user.avatar" :alt="`${project.user.full_name} Photo Profile`">
               </router-link>
@@ -82,7 +82,7 @@
               <div>{{ project.user.expertise }}</div>
             </div>
           </div>
-          <div class="lecturer-info--right">
+          <div class="recruiter-info--right">
             <span class="iconify" data-icon="dashicons:share" width="30" height="30" />
           </div>
         </div>
@@ -136,8 +136,8 @@
         </div>
       </div>
       <div class="desktop__body--right">
-        <div v-if="$matchMedia.xl" class="lecturer-info--left">
-          <div class="lecturer-info--image-container mr-1">
+        <div v-if="$matchMedia.xl" class="recruiter-info--left">
+          <div class="recruiter-info--image-container mr-1">
             <router-link :to="{ path: '/@/' + project.user.tagname }" class="lencturer-text-link">
               <img :src="project.user.avatar" :alt="`${project.user.full_name} Photo Profile`">
             </router-link>
@@ -151,7 +151,7 @@
           </div>
         </div>
         <router-link :to="{ name: 'message', params: { tagname: project.user.tagname } }" class="btn btn--blue btn--large" tag="button" :disabled="isSelf">
-          Contact Lecturer
+          Contact Recruiter
         </router-link>
         <div v-if="$matchMedia.xl" class="project-summary">
           <div class="details__share--container">
@@ -361,10 +361,10 @@ export default {
     },
 
     isEligibleToApply () {
-      return (this.project.is_open_hiring && !this.user) | (this.user && this.user.role !== 'Lecturer' && this.theStudentHighestPoints >= this.minimumPoints && this.project.is_open_hiring)
+      return (this.project.is_open_hiring && !this.user) | (this.user && this.user.role !== 'Recruiter' && this.theConsultantHighestPoints >= this.minimumPoints && this.project.is_open_hiring)
     },
 
-    theStudentHighestPoints () {
+    theConsultantHighestPoints () {
       if (this.user && this.user.leaderboards) {
         return Math.max(this.user.leaderboards.map(e => e.points))
       }

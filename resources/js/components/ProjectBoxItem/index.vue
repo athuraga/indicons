@@ -1,6 +1,6 @@
 <template>
   <div class="project-box__container">
-    <template v-if="role === 'Student'">
+    <template v-if="role === 'Consultant'">
       <ProjectBoxItemWaiting v-if="data.status === 'Waiting'" :data="data" />
       <ProjectBoxItemAccepted v-else-if="data.status === 'Accepted'" :data="data" />
       <ProjectBoxItemRejected v-else-if="data.status === 'Rejected'" :data="data" />
@@ -20,17 +20,17 @@
 </template>
 
 <script>
-import ProjectBoxItemWaiting from '~/components/ProjectBoxItem/Student/ProjectBoxItemWaiting'
-import ProjectBoxItemAccepted from '~/components/ProjectBoxItem/Student/ProjectBoxItemAccepted'
-import ProjectBoxItemRejected from '~/components/ProjectBoxItem/Student/ProjectBoxItemRejected'
-import ProjectBoxItemWaitingToStart from '~/components/ProjectBoxItem/Student/ProjectBoxItemWaitingToStart'
-import ProjectBoxItemProjectStarted from '~/components/ProjectBoxItem/Student/ProjectBoxItemProjectStarted'
-import ProjectBoxItemBailOut from '~/components/ProjectBoxItem/Student/ProjectBoxItemBailOut'
-import ProjectBoxItemHiring from '~/components/ProjectBoxItem/Lecturer/ProjectBoxItemHiring'
-import ProjectBoxItemOngoing from '~/components/ProjectBoxItem/Lecturer/ProjectBoxItemOngoing'
-import ProjectBoxItemConfirmation from '~/components/ProjectBoxItem/Lecturer/ProjectBoxItemConfirmation'
-import ProjectBoxItemFinished from '~/components/ProjectBoxItem/Lecturer/ProjectBoxItemFinished'
-import ProjectBoxItemDraft from '~/components/ProjectBoxItem/Lecturer/ProjectBoxItemDraft'
+import ProjectBoxItemWaiting from '~/components/ProjectBoxItem/Consultant/ProjectBoxItemWaiting'
+import ProjectBoxItemAccepted from '~/components/ProjectBoxItem/Consultant/ProjectBoxItemAccepted'
+import ProjectBoxItemRejected from '~/components/ProjectBoxItem/Consultant/ProjectBoxItemRejected'
+import ProjectBoxItemWaitingToStart from '~/components/ProjectBoxItem/Consultant/ProjectBoxItemWaitingToStart'
+import ProjectBoxItemProjectStarted from '~/components/ProjectBoxItem/Consultant/ProjectBoxItemProjectStarted'
+import ProjectBoxItemBailOut from '~/components/ProjectBoxItem/Consultant/ProjectBoxItemBailOut'
+import ProjectBoxItemHiring from '~/components/ProjectBoxItem/Recruiter/ProjectBoxItemHiring'
+import ProjectBoxItemOngoing from '~/components/ProjectBoxItem/Recruiter/ProjectBoxItemOngoing'
+import ProjectBoxItemConfirmation from '~/components/ProjectBoxItem/Recruiter/ProjectBoxItemConfirmation'
+import ProjectBoxItemFinished from '~/components/ProjectBoxItem/Recruiter/ProjectBoxItemFinished'
+import ProjectBoxItemDraft from '~/components/ProjectBoxItem/Recruiter/ProjectBoxItemDraft'
 
 export default {
   name: 'ProjectBoxItem',

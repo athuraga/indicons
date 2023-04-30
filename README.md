@@ -36,7 +36,7 @@
 
 [![PHive Landing Page](public/github/landing-page.png)](https://phive.ivqonsanada.com)
 
-A kind of freelancing website for College. Where Lecturer can publish his/her project here waiting students apply to work on the project. Student will get some kind of rewards like salary and/or certification.
+A kind of freelancing website for College. Where Recruiter can publish his/her project here waiting consultants apply to work on the project. Consultant will get some kind of rewards like salary and/or certification.
 
 Features:
 
@@ -46,11 +46,11 @@ Features:
     -   Profile
     -   Message
     -   Inbox
--   Lecturer
+-   Recruiter
     -   Project Publications (Posting - Recruit - Review)
     -   Project Box (to Organize Project)
-    -   Hire Student
--   Student
+    -   Hire Consultant
+-   Consultant
     -   Apply Project (as Individual / as Team)
     -   Party (for make the Team)
     -   Project Box (to See current Apply/Ongoing/Finished projects)
@@ -131,12 +131,12 @@ To get a local copy up and running follow these simple steps.
 7. Try dummy account
 
     ```dosini
-    # student
-    username = student@example.com
+    # consultant
+    username = consultant@example.com
     password = password
 
-    # lecturer
-    username = lecturer@example.ac.id
+    # recruiter
+    username = recruiter@example.ac.id
     password = password
     ```
 

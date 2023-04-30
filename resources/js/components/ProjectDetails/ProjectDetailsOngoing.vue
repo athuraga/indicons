@@ -72,9 +72,9 @@
 
     <div class="desktop-details__body">
       <div class="project-details--main-body">
-        <div v-if="!$matchMedia.xl" class="project-details__lecturer-info">
-          <div class="lecturer-info--left">
-            <div class="lecturer-info--image-container mr-1">
+        <div v-if="!$matchMedia.xl" class="project-details__recruiter-info">
+          <div class="recruiter-info--left">
+            <div class="recruiter-info--image-container mr-1">
               <router-link :to="{ path: '/@/' + project.user.tagname }" class="lencturer-text-link">
                 <img :src="project.user.avatar" :alt="`${project.user.full_name} Photo Profile`">
               </router-link>
@@ -87,7 +87,7 @@
               <div>{{ project.user.expertise }}</div>
             </div>
           </div>
-          <div class="lecturer-info--right">
+          <div class="recruiter-info--right">
             <span class="iconify" data-icon="dashicons:share" width="30" height="30" />
           </div>
         </div>
@@ -136,8 +136,8 @@
         </div>
       </div>
       <div class="desktop__body--right">
-        <div v-if="$matchMedia.xl" class="lecturer-info--left">
-          <div class="lecturer-info--image-container mr-1">
+        <div v-if="$matchMedia.xl" class="recruiter-info--left">
+          <div class="recruiter-info--image-container mr-1">
             <router-link :to="{ path: '/@/' + project.user.tagname }" class="lencturer-text-link">
               <img :src="project.user.avatar" :alt="`${project.user.full_name} Photo Profile`">
             </router-link>
@@ -151,7 +151,7 @@
           </div>
         </div>
         <router-link :to="{ name: 'message', params: { tagname: project.user.tagname } }" class="btn btn--blue btn--large" tag="button" :disabled="isSelf">
-          Contact Lecturer
+          Contact Recruiter
         </router-link>
         <div v-if="$matchMedia.xl" class="project-summary">
           <div class="details__share--container">

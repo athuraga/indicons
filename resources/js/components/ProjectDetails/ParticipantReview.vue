@@ -13,7 +13,7 @@
 
         <div class="text-center">
           <p class="participant-review__score-text">
-            Student Score
+            Consultant Score
           </p>
           <p class="participant-review__score-number">
             {{ Number(data.score).toFixed(1) }}
@@ -25,7 +25,7 @@
     <div class="participant-review__bottom" :class="{ 'participant-review__bottom--open': show, 'participant-review__bottom--close': close }">
       <p>{{ data.assessment }}</p>
       <p class="text-bold">
-        {{ lecturer }}
+        {{ recruiter }}
       </p>
     </div>
 
@@ -43,7 +43,7 @@ export default {
 
   props: {
     data: { type: Object, default: null },
-    lecturer: { type: String, default: null },
+    recruiter: { type: String, default: null },
     index: { type: Number, default: null }
   },
 

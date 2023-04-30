@@ -58,10 +58,10 @@
                 </div>
                 <div v-if="$matchMedia.xl" class="form-group__container review-score__container">
                   <h4 class="form-group__input-name post__h4">
-                    Student Score
+                    Consultant Score
                   </h4>
                   <div class="">
-                    <input v-model="form.participants[index].score" class="form-group__input-text" placeholder="Write down your student score" type="number" step="0.1" min="0.0" max="5.0" required>
+                    <input v-model="form.participants[index].score" class="form-group__input-text" placeholder="Write down your consultant score" type="number" step="0.1" min="0.0" max="5.0" required>
                   </div>
                 </div>
               </div>
@@ -75,10 +75,10 @@
               </div>
               <div v-if="!$matchMedia.xl" class="form-group__container">
                 <h4 class="form-group__input-name">
-                  Student Score
+                  Consultant Score
                 </h4>
                 <div class="">
-                  <input v-model="form.participants[index].score" class="form-group__input-text" placeholder="Write down your student score" type="number" step="0.1" min="0.0" max="5.0">
+                  <input v-model="form.participants[index].score" class="form-group__input-text" placeholder="Write down your consultant score" type="number" step="0.1" min="0.0" max="5.0">
                 </div>
               </div>
             </div>
@@ -113,7 +113,7 @@ import axios from 'axios'
 export default {
   name: 'ReviewProject',
   layout: 'back',
-  middleware: ['auth', 'lecturer'],
+  middleware: ['auth', 'recruiter'],
 
   metaInfo () { return { title: 'Review Project' } },
 

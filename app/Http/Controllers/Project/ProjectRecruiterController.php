@@ -17,7 +17,7 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
-class ProjectLecturerController extends Controller
+class ProjectRecruiterController extends Controller
 {
     public function inviteToProject(Request $request, User $user)
     {
@@ -60,7 +60,7 @@ class ProjectLecturerController extends Controller
                 ]);
             } else {
                 return response()->json([
-                    'message' => "The student is already in the project team members",
+                    'message' => "The consultant is already in the project team members",
                 ], 400);
             }
         }
@@ -70,7 +70,7 @@ class ProjectLecturerController extends Controller
     {
         $user = $request->user();
 
-        if ($user->role === 'Lecturer') {
+        if ($user->role === 'Recruiter') {
             $faker = Faker::create('id_ID');
             $projectUrl = str_replace('/', '-', $request->post('title'));
             $projectStatus = $request->post('status') === 'Publish' ? 'Hiring' : 'Draft';
@@ -236,7 +236,7 @@ class ProjectLecturerController extends Controller
             'file' => 'required|image|mimes:jpeg,png,jpg|max:516',
         ]);
 
-        if ($userAuth->role === 'Lecturer' && $request->hasFile('file')) {
+        if ($userAuth->role === 'Recruiter' && $request->hasFile('file')) {
             $file = new Filesystem;
             $file->cleanDirectory("storage/images/project/temp/{$userAuth->id}");
 
@@ -274,7 +274,7 @@ class ProjectLecturerController extends Controller
             'file' => 'required|image|mimes:jpeg,png,jpg|max:516',
         ]);
 
-        if ($userAuth->role === 'Lecturer' && $request->hasFile('file')) {
+        if ($userAuth->role === 'Recruiter' && $request->hasFile('file')) {
             $image = $request->file('file');
             $extension = $image->extension();
             $imgName = $this->generateRandomString(25) . '.' . $extension;

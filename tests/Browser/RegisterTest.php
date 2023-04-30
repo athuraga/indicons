@@ -41,7 +41,7 @@ class RegisterTest extends DuskTestCase
                 ->submit([
                     'first_name' => 'Test User',
                     'last_name' => 'Test User',
-                    'email' => 'student@gmail.com',
+                    'email' => 'consultant@gmail.com',
                     'password' => 'password',
                 ])
                 ->assertSee('The email has already been taken.');

@@ -1,5 +1,5 @@
 <template>
-  <div class="login-page--container" :class="{ 'lecturer-bg': lecturerRole }">
+  <div class="login-page--container" :class="{ 'recruiter-bg': recruiterRole }">
     <div v-if="!$matchMedia.xl" class="login-page--logo">
       <router-link :to="{ name: 'index' }">
         <img src="/images/logo.svg" alt="">
@@ -35,16 +35,16 @@
       </h1>
       <div class="login-role--container">
         <div>
-          <input id="login-student" v-model="form.role" class="login-radio" type="radio" value="Student">
-          <label class="login-radio--label" for="login-student" @click="chooseStudent">Student</label>
+          <input id="login-consultant" v-model="form.role" class="login-radio" type="radio" value="Consultant">
+          <label class="login-radio--label" for="login-consultant" @click="chooseConsultant">Consultant</label>
         </div>
         <div>
-          <input id="login-lecturer" v-model="form.role" class="login-radio" type="radio" value="Lecturer">
-          <label class="login-radio--label" for="login-lecturer" @click="chooseLecturer">Lecturer</label>
+          <input id="login-recruiter" v-model="form.role" class="login-radio" type="radio" value="Recruiter">
+          <label class="login-radio--label" for="login-recruiter" @click="chooseRecruiter">Recruiter</label>
         </div>
       </div>
 
-      <div v-if="!$matchMedia.xl" class="role--choose-effect" :class="{ 'role--student': studentRole, 'role--lecturer': lecturerRole }" />
+      <div v-if="!$matchMedia.xl" class="role--choose-effect" :class="{ 'role--consultant': consultantRole, 'role--recruiter': recruiterRole }" />
       <div v-else class="separator mt-1_5 mb-2">
         Sign In
       </div>
@@ -80,7 +80,7 @@
 
         <div class="">
           <!-- Submit Button -->
-          <v-button :loading="form.busy" class="login-submit--button" :class="{ 'is-lecturer': lecturerRole }">
+          <v-button :loading="form.busy" class="login-submit--button" :class="{ 'is-recruiter': recruiterRole }">
             Sign In
           </v-button>
         </div>
@@ -117,13 +117,13 @@ export default {
   metaInfo () { return { title: 'Sign In' } },
 
   data: () => ({
-    studentRole: false,
-    lecturerRole: false,
+    consultantRole: false,
+    recruiterRole: false,
     hidePassword: true,
     passwordType: 'password',
 
     form: new Form({
-      role: 'Student',
+      role: 'Consultant',
       email: '',
       password: ''
     }),
@@ -136,12 +136,12 @@ export default {
     }),
 
     role () {
-      if (this.form.role === 'Student') {
+      if (this.form.role === 'Consultant') {
         return {
           img: {
-            top: '/images/login-top-student.png',
-            midLeft: '/images/login-mid-left-1-student.png',
-            midRight: '/images/login-mid-right-student.png'
+            top: '/images/login-top-consultant.png',
+            midLeft: '/images/login-mid-left-1-consultant.png',
+            midRight: '/images/login-mid-right-consultant.png'
           },
           class: {
             midImage: ''
@@ -152,9 +152,9 @@ export default {
 
       return {
         img: {
-          top: '/images/login-top-lecturer.png',
-          midLeft: '/images/login-mid-left-1-lecturer.png',
-          midRight: '/images/login-mid-right-lecturer.png'
+          top: '/images/login-top-recruiter.png',
+          midLeft: '/images/login-mid-left-1-recruiter.png',
+          midRight: '/images/login-mid-right-recruiter.png'
         },
         class: {
           midImage: 'row-reverse'
@@ -166,17 +166,17 @@ export default {
 
   methods: {
     async login () {
-      const isLecturer = this.form.email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(?!.*(student)).*.ac.id.*$/)
+      const isRecruiter = this.form.email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(?!.*(consultant)).*.ac.id.*$/)
 
-      if (this.form.role === 'Lecturer' && !isLecturer) {
-        this.snackbar.open('You are likely not using a lecturer identity.')
-        this.chooseStudent()
-        this.form.role = 'Student'
+      if (this.form.role === 'Recruiter' && !isRecruiter) {
+        this.snackbar.open('You are likely not using a recruiter identity.')
+        this.chooseConsultant()
+        this.form.role = 'Consultant'
         return
-      } else if (this.form.role === 'Student' && isLecturer) {
-        this.snackbar.open('You are likely using a lecturer identity. ')
-        this.chooseLecturer()
-        this.form.role = 'Lecturer'
+      } else if (this.form.role === 'Consultant' && isRecruiter) {
+        this.snackbar.open('You are likely using a recruiter identity. ')
+        this.chooseRecruiter()
+        this.form.role = 'Recruiter'
         return
       }
 
@@ -193,14 +193,14 @@ export default {
         })
     },
 
-    chooseStudent () {
-      this.studentRole = true
-      this.lecturerRole = false
+    chooseConsultant () {
+      this.consultantRole = true
+      this.recruiterRole = false
     },
 
-    chooseLecturer () {
-      this.lecturerRole = true
-      this.studentRole = false
+    chooseRecruiter () {
+      this.recruiterRole = true
+      this.consultantRole = false
     },
     togglePassword () {
       this.hidePassword = !this.hidePassword

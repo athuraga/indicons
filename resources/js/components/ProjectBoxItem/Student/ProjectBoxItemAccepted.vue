@@ -90,7 +90,7 @@ export default {
     }),
 
     status () {
-      if (this.role === 'Student') {
+      if (this.role === 'Consultant') {
         if (this.data.status === 'Waiting') return { icon: 'ant-design:field-time-outlined', text: 'Waiting' }
         if (this.data.status === 'Accepted') return { icon: 'bi:shield-fill-check', text: 'Accepted' }
         if (this.data.status === 'Rejected') return { icon: 'ic:round-block', text: 'Rejected' }
@@ -130,7 +130,7 @@ export default {
       this.candidates.agree = this.candidates.fixes.length
     }
 
-    if (this.role === 'Lecturer') {
+    if (this.role === 'Recruiter') {
       const date = new Date(this.data.created_at)
       let options = { day: 'numeric', year: 'numeric', month: 'long' }
       this.date = date.toLocaleString('en-US', options)

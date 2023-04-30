@@ -113,7 +113,7 @@
                   <span class="iconify" data-icon="fa-solid:paint-brush" width="10" height="10" />
                   <span>{{ user.expertise }}</span>
                 </p>
-                <p v-if="user.role === 'Student'" class="nav--profile-points">
+                <p v-if="user.role === 'Consultant'" class="nav--profile-points">
                   {{ points }}
                 </p>
               </div>
@@ -224,7 +224,7 @@ export default {
 
     rightMenu () {
       if (this.user) {
-        if (this.user.role === 'Lecturer') {
+        if (this.user.role === 'Recruiter') {
           return [
             { route: { name: 'project.post' }, text: 'Post Project', icon: 'ic:baseline-post-add' },
             { route: { name: 'inbox' }, text: 'Inbox', icon: 'ion:mail-unread-sharp' },

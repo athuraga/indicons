@@ -42,11 +42,11 @@ class UserSeeder extends Seeder
             'Data Expert'
         ];
 
-        $student_identity_number = [
+        $consultant_identity_number = [
 
         ];
 
-        $lecturer_identity_number = [
+        $recruiter_identity_number = [
             '197298959619021001',
             '197209583657021001',
             '197247598397021001',
@@ -72,12 +72,12 @@ class UserSeeder extends Seeder
         $users[] = [
             'first_name' => 'Ivqonnada ',
             'last_name' => 'Al Mufarrih',
-            'email' => 'student@example.com',
+            'email' => 'consultant@example.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
             'tagname' => 'ivqonsanada',
-            'role' => 'Student',
+            'role' => 'Consultant',
             'expertise' => 'Frontend Engineer',
             'identity_number' => '175150200111042',
             'university' => 'University of Brawijaya',
@@ -106,12 +106,12 @@ class UserSeeder extends Seeder
         $users[] = [
             'first_name' => 'Stephen ',
             'last_name' => 'R. Covey, Ph.D.',
-            'email' => 'lecturer@example.ac.id',
+            'email' => 'recruiter@example.ac.id',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
             'tagname' => 'covey',
-            'role' => 'Lecturer',
+            'role' => 'Recruiter',
             'expertise' => 'UI/UX Designer Specialist',
             'identity_number' => '197408232000121002',
             'university' => 'University of Brawijaya',
@@ -138,10 +138,10 @@ class UserSeeder extends Seeder
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
                 'remember_token' => Str::random(10),
-                'role' => 'Lecturer',
+                'role' => 'Recruiter',
                 'tagname' => $tagname,
                 'expertise' => $expertise[array_rand($expertise)] . ' Specialist',
-                'identity_number' => $lecturer_identity_number[array_rand($lecturer_identity_number)],
+                'identity_number' => $recruiter_identity_number[array_rand($recruiter_identity_number)],
                 'university' => 'University of Brawijaya',
                 'faculty' => 'Faculty of Computer Science',
                 'major' => $major[array_rand($major)],
@@ -161,7 +161,7 @@ class UserSeeder extends Seeder
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
             'tagname' => 'verrelradiman',
-            'role' => 'Student',
+            'role' => 'Consultant',
             'expertise' => 'UI/UX Designer',
             'identity_number' => '175150200111051',
             'university' => 'University of Brawijaya',
@@ -203,7 +203,7 @@ class UserSeeder extends Seeder
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
             'tagname' => 'ajigumiwang',
-            'role' => 'Student',
+            'role' => 'Consultant',
             'expertise' => 'Data Expert',
             'identity_number' => '175150200111091',
             'university' => 'University of Brawijaya',

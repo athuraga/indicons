@@ -18,7 +18,7 @@ class ProjectBox extends Model
         return $this->belongsTo('App\Project');
     }
 
-    public static function lecturerProjectBoxes ($user) {
+    public static function recruiterProjectBoxes ($user) {
         return ProjectBox::with(['project', 'project.individual_applicants.from:id,first_name,last_name,photo_url,tagname,email', 'project.individual_applicants' => function ($q) {
                 $q->where('individual_applicants.status', '!=', 'Applying');
         }, 'project.team_applicants.applicant_team_members.member', 'project.team_applicants' => function ($q) {

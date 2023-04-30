@@ -10,12 +10,12 @@
         </div>
 
         <div class="project-box__item--lecture-statuses">
-          <div class="project-box__item--status-lecturer">
+          <div class="project-box__item--status-recruiter">
             <span class="iconify" data-icon="ic:round-access-time" width="12" height="12" />
             <span v-if="$matchMedia.sm" class="pre">Posted on </span> {{ date }}
           </div>
-          <div class="project-box__item--status-lecturer">
-            <span class="project-box__item--lecturer-icon"><b>C</b></span>
+          <div class="project-box__item--status-recruiter">
+            <span class="project-box__item--recruiter-icon"><b>C</b></span>
             <span>Confirmation</span>
           </div>
         </div>
@@ -101,7 +101,7 @@
 
             <template v-slot:footer>
               <button class="btn btn--blue ml-auto" :disabled="disableShortlist" @click="showShortlist">
-                Shortlist Student
+                Shortlist Consultant
               </button>
             </template>
           </Modal>
@@ -208,7 +208,7 @@
 
           <template v-slot:footer>
             <button class="btn btn--blue " :disabled="disableShortlist" @click="showShortlist">
-              Shortlist Student
+              Shortlist Consultant
             </button>
           </template>
         </modal>

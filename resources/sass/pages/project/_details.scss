@@ -263,7 +263,7 @@
   width: 100%;
 }
 
-.project-details__lecturer-info {
+.project-details__recruiter-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -272,7 +272,7 @@
   margin-bottom: 2rem;
 }
 
-.lecturer-info--left {
+.recruiter-info--left {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -291,12 +291,12 @@
   }
 }
 
-.lecturer-info--right {
+.recruiter-info--right {
   display: flex;
   align-items: center;
 }
 
-.lecturer-info--image-container {
+.recruiter-info--image-container {
   & img {
     border-radius: 50%;
     width: 6.4rem;

@@ -6,7 +6,7 @@
           <h4 class="form-group__input-name">
             Expertise Role
           </h4>
-          <template v-if="user.role === 'Student'">
+          <template v-if="user.role === 'Consultant'">
             <div class="select">
               <select v-model="form.user.expertise">
                 <option value="UI/UX Designer">
@@ -25,7 +25,7 @@
               <span class="focus" />
             </div>
           </template>
-          <template v-else-if="user.role === 'Lecturer'">
+          <template v-else-if="user.role === 'Recruiter'">
             <div class="">
               <input v-model="form.user.expertise" class="form-group__input-text mb-0_5" placeholder="e.g., UI/UX Designer Specialist, Frontend Engineer Expert">
             </div>
@@ -161,7 +161,7 @@
           </div>
         </div>
 
-        <div v-if="user.role === 'Student'" class="edit__hire--container mt-3">
+        <div v-if="user.role === 'Consultant'" class="edit__hire--container mt-3">
           <span class="newcomer__hire--text">Are you open to be hired?</span>
           <div class="newcomer__hire--button-group">
             <div class="open-hire">

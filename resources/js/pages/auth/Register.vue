@@ -1,5 +1,5 @@
 <template>
-  <div class="register-page--container" :class="{ 'lecturer-bg': lecturerRole }">
+  <div class="register-page--container" :class="{ 'recruiter-bg': recruiterRole }">
     <div v-if="!$matchMedia.xl" class="login-page--logo">
       <router-link :to="{ name: 'index' }">
         <img src="/images/logo.svg" alt="">
@@ -32,16 +32,16 @@
       </h1>
       <div class="login-role--container">
         <div>
-          <input id="login-student" v-model="form.role" class="login-radio" type="radio" value="Student" name="role">
-          <label class="login-radio--label" for="login-student" @click="chooseStudent">Student</label>
+          <input id="login-consultant" v-model="form.role" class="login-radio" type="radio" value="Consultant" name="role">
+          <label class="login-radio--label" for="login-consultant" @click="chooseConsultant">Consultant</label>
         </div>
         <div>
-          <input id="login-lecturer" v-model="form.role" class="login-radio" type="radio" value="Lecturer" name="role">
-          <label class="login-radio--label" for="login-lecturer" @click="chooseLecturer">Lecturer</label>
+          <input id="login-recruiter" v-model="form.role" class="login-radio" type="radio" value="Recruiter" name="role">
+          <label class="login-radio--label" for="login-recruiter" @click="chooseRecruiter">Recruiter</label>
         </div>
       </div>
 
-      <div v-if="!$matchMedia.xl" class="role--choose-effect" :class="{ 'role--student': studentRole, 'role--lecturer': lecturerRole }" />
+      <div v-if="!$matchMedia.xl" class="role--choose-effect" :class="{ 'role--consultant': consultantRole, 'role--recruiter': recruiterRole }" />
       <div v-else class="separator mt-1_5 mb-2">
         Sign Up
       </div>
@@ -75,7 +75,7 @@
           </h4>
           <div class="">
             <input v-model="form.email" :class="{ 'is-invalid': form.errors.has('email') }" class="form-group__input-text" type="email" name="email" placeholder="e.g., johndoe@example.ac.id" autocomplete="username" required>
-            <p v-if="form.role === 'Student'" class="form-group__input-info">
+            <p v-if="form.role === 'Consultant'" class="form-group__input-info">
               You can use letters, numbers & periods
             </p>
             <p v-else class="form-group__input-info form-input__info--email">
@@ -113,7 +113,7 @@
 
         <div class="">
           <!-- Submit Button -->
-          <v-button :loading="form.busy" class="login-submit--button" :class="{ 'is-lecturer': lecturerRole }">
+          <v-button :loading="form.busy" class="login-submit--button" :class="{ 'is-recruiter': recruiterRole }">
             Sign Up
           </v-button>
         </div>
@@ -146,13 +146,13 @@ export default {
   metaInfo () { return { title: 'Sign Up' } },
 
   data: () => ({
-    studentRole: false,
-    lecturerRole: false,
+    consultantRole: false,
+    recruiterRole: false,
     hidePassword: true,
     passwordType: 'password',
 
     form: new Form({
-      role: 'Student',
+      role: 'Consultant',
       first_name: '',
       last_name: '',
       email: '',
@@ -163,12 +163,12 @@ export default {
 
   computed: {
     role () {
-      if (this.form.role === 'Student') {
+      if (this.form.role === 'Consultant') {
         return {
           img: {
-            top: '/images/register-top-student.png',
-            midLeft: '/images/register-mid-left-student.png',
-            midRight: '/images/login-mid-right-student.png'
+            top: '/images/register-top-consultant.png',
+            midLeft: '/images/register-mid-left-consultant.png',
+            midRight: '/images/login-mid-right-consultant.png'
           },
           class: {
             midImage: ''
@@ -179,9 +179,9 @@ export default {
 
       return {
         img: {
-          top: '/images/login-top-lecturer.png',
-          midLeft: '/images/login-mid-left-1-lecturer.png',
-          midRight: '/images/login-mid-right-lecturer.png'
+          top: '/images/login-top-recruiter.png',
+          midLeft: '/images/login-mid-left-1-recruiter.png',
+          midRight: '/images/login-mid-right-recruiter.png'
         },
         class: {
           midImage: 'row-reverse'
@@ -219,15 +219,15 @@ export default {
         this.$router.push({ name: 'index' })
       }
     },
-    chooseStudent () {
-      this.studentRole = true
-      this.lecturerRole = false
-      this.form.role = 'Student'
+    chooseConsultant () {
+      this.consultantRole = true
+      this.recruiterRole = false
+      this.form.role = 'Consultant'
     },
-    chooseLecturer () {
-      this.lecturerRole = true
-      this.studentRole = false
-      this.form.role = 'Lecturer'
+    chooseRecruiter () {
+      this.recruiterRole = true
+      this.consultantRole = false
+      this.form.role = 'Recruiter'
     },
     togglePassword () {
       this.hidePassword = !this.hidePassword

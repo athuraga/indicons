@@ -21,8 +21,8 @@ class ProjectSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create('id_ID');
-        $lecturers = User::where('role', 'Lecturer')->get();
-        $lecturers_id = $lecturers->pluck('id')->toArray();
+        $recruiters = User::where('role', 'Recruiter')->get();
+        $recruiters_id = $recruiters->pluck('id')->toArray();
 
         $projectName = [
             '', '',
@@ -43,11 +43,11 @@ class ProjectSeeder extends Seeder
             [],[],[],[],[],[],[],[],[],[],[],[],[],
             [
                 'title' => 'Financial Calculator',
-                'description' => 'I need a group of students to design and implement a financial calculator (web-based) for me that can calculate: 1. Fund requirement 2. Financial Check-up 3. Pension Fund 4. Education Fund 5. Marriage Fund 6. Latte factor for description and reference.'
+                'description' => 'I need a group of consultants to design and implement a financial calculator (web-based) for me that can calculate: 1. Fund requirement 2. Financial Check-up 3. Pension Fund 4. Education Fund 5. Marriage Fund 6. Latte factor for description and reference.'
             ],
             [
                 'title' => 'Website for Pet Accessories',
-                'description' => 'Hey students, I need someone to make me an e-catalogue for pet accessories products. The pet accessories consists of collars, leash, harness, and pet toys. Product photos will be sent as soon as you are ready, it may need a little editing.'
+                'description' => 'Hey consultants, I need someone to make me an e-catalogue for pet accessories products. The pet accessories consists of collars, leash, harness, and pet toys. Product photos will be sent as soon as you are ready, it may need a little editing.'
             ],
             [
                 'title' => 'Chatting App using the base64 Method',
@@ -59,7 +59,7 @@ class ProjectSeeder extends Seeder
             ],
             [
                 'title' => 'Company Profile Website',
-                'description' => 'Dear students, I want to create a company profile website like https://ottobanindonesia.com/ciputat/. There is a product view, blog and news, and other stuff. You may use CodeIgniter 3 or other frameworks, but CodeIgniter 3 is preferrable. Please apply.'
+                'description' => 'Dear consultants, I want to create a company profile website like https://ottobanindonesia.com/ciputat/. There is a product view, blog and news, and other stuff. You may use CodeIgniter 3 or other frameworks, but CodeIgniter 3 is preferrable. Please apply.'
             ],
             [
                 'title' => 'Mobile Phone Store Inventory System',
@@ -71,7 +71,7 @@ class ProjectSeeder extends Seeder
             ],
             [
                 'title' => 'Safety Flight Demonstration Animation',
-                'description' => 'Hey students, I need someone to create an animation explaining the safety flight demonstration as an animation. You may use Blender or other software. Need this soon. Please contact me for further information.'
+                'description' => 'Hey consultants, I need someone to create an animation explaining the safety flight demonstration as an animation. You may use Blender or other software. Need this soon. Please contact me for further information.'
             ],
             [
                 'title' => 'Clinic Management App',
@@ -83,7 +83,7 @@ class ProjectSeeder extends Seeder
             ],
             [
                 'title' => 'Expert System Android-based',
-                'description' => 'I need a group of students to make an Android-based mobile application (expert system) using the Naive Bayes Algorithm to determine the accuracy of Covid symptoms.'
+                'description' => 'I need a group of consultants to make an Android-based mobile application (expert system) using the Naive Bayes Algorithm to determine the accuracy of Covid symptoms.'
             ],
             [
                 'title' => 'UI/UX and Prototyping',
@@ -209,12 +209,12 @@ class ProjectSeeder extends Seeder
             $month = $faker->numberBetween($min = 8, $max = 9);
             $day = $faker->numberBetween($min = 1, $max = 24);
 
-            $lecturer_id = $lecturers_id[array_rand($lecturers_id)];
+            $recruiter_id = $recruiters_id[array_rand($recruiters_id)];
 
             $projectTitle = $i <= 12 ? $projectName[$i] : $projectsDummy[$i]['title'];
             $projectUrl = str_replace('/', '-', $projectTitle);
             $projects[] = [
-                'user_id' => $lecturer_id,
+                'user_id' => $recruiter_id,
                 'title' => $projectTitle,
                 'description' => $i <= 12 ? $faker->text : $projectsDummy[$i]['description'],
                 'salary' => $has_salary,
@@ -237,7 +237,7 @@ class ProjectSeeder extends Seeder
 
             $projectBoxes[] = [
                 'project_id' => $i,
-                'user_id' => $lecturer_id,
+                'user_id' => $recruiter_id,
                 'status' => 'Hiring',
                 'created_at' => Carbon::createFromDate(2020, $month, $day, 'Asia/Jakarta'),
                 'updated_at' => Carbon::createFromDate(2020, $month, $day, 'Asia/Jakarta'),

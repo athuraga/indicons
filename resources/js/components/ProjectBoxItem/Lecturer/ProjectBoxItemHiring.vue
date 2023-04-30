@@ -10,12 +10,12 @@
         </div>
 
         <div class="project-box__item--lecture-statuses">
-          <div class="project-box__item--status-lecturer">
+          <div class="project-box__item--status-recruiter">
             <span class="iconify" data-icon="ic:round-access-time" width="12" height="12" />
             <span v-if="$matchMedia.sm" class="pre">Posted on</span> {{ date }}
           </div>
-          <div class="project-box__item--status-lecturer">
-            <span class="project-box__item--lecturer-icon"><b>H</b></span>
+          <div class="project-box__item--status-recruiter">
+            <span class="project-box__item--recruiter-icon"><b>H</b></span>
             <span>Hiring</span>
           </div>
         </div>
@@ -63,7 +63,7 @@
         </div>
         <div class="nav-separator mt-1 mb-1" />
         <router-link :to="{ name: 'shortlist.individual', params: { id: data.project.project_url } }" class="btn btn--grey-2 btn--small" tag="button">
-          Shortlist Students
+          Shortlist Consultants
         </router-link>
       </div>
     </div>
@@ -99,7 +99,7 @@
         </div>
         <div class="nav-separator mt-1 mb-1" />
         <router-link :to="{ name: 'shortlist.individual', params: { id: data.project.project_url } }" class="btn btn--grey-2 btn--small" tag="button">
-          Shortlist Students
+          Shortlist Consultants
         </router-link>
       </div>
     </div>

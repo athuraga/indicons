@@ -35,7 +35,7 @@
 export default {
   name: 'ApplyIndex',
 
-  middleware: ['auth', 'student'],
+  middleware: ['auth', 'consultant'],
 
   computed: {
     title () {

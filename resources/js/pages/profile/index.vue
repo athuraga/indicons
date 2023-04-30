@@ -25,11 +25,11 @@
           </router-link>
         </div>
 
-        <p v-if="user.role === 'Student'" :class="userStatus.class">
+        <p v-if="user.role === 'Consultant'" :class="userStatus.class">
           <span class="iconify profile__info--icon" data-icon="carbon:dot-mark" />
           <span>{{ userStatus.text }}</span>
         </p>
-        <p v-else-if="user.role === 'Lecturer'" :class="userStatus.class">
+        <p v-else-if="user.role === 'Recruiter'" :class="userStatus.class">
           <span class="iconify profile__info--icon" data-icon="bi:shield-fill-check" />
           <span>{{ userStatus.text }}</span>
         </p>
@@ -84,7 +84,7 @@ export default {
     }),
 
     tabs () {
-      if (this.user.role === 'Student') {
+      if (this.user.role === 'Consultant') {
         return [
           { name: 'Projects', route: 'profile.projects' },
           { name: 'Wishlist', route: 'profile.wishlist' },
@@ -99,12 +99,12 @@ export default {
     },
 
     major () {
-      if (this.user.role === 'Student') return this.user.major + ' Major'
+      if (this.user.role === 'Consultant') return this.user.major + ' Major'
       else return this.user.major
     },
 
     userStatus () {
-      if (this.user.role === 'Student') {
+      if (this.user.role === 'Consultant') {
         return {
           class: this.user.is_open_hired ? 'profile__info--available' : 'profile__info--unavailable',
           text: this.user.is_open_hired ? 'Available' : 'Unavailable' }

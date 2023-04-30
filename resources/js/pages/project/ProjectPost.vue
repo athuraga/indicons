@@ -354,7 +354,7 @@ import RequirementItem from '~/components/RequirementItem'
 export default {
   name: 'PostProject',
 
-  middleware: ['auth', 'lecturer'],
+  middleware: ['auth', 'recruiter'],
   components: { RequirementItem },
 
   metaInfo () { return { title: 'Post Project' } },

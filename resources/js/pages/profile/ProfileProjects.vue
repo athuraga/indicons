@@ -30,7 +30,7 @@ export default {
     }),
 
     projects () {
-      if (this.user.role === 'Student') {
+      if (this.user.role === 'Consultant') {
         return this.data.projects.map(e => e.project)
       }
 

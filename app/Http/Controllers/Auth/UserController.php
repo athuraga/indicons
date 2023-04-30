@@ -25,7 +25,7 @@ class UserController extends Controller
     {
         $user = $request->user();
 
-        if ($user->role === 'Student') {
+        if ($user->role === 'Consultant') {
             $projects = ProjectBox::with('project.user:id,tagname,first_name,last_name,photo_url,email')->where('user_id', $user->id)->where('status', 'Finished')->latest()->get();
             $wishlists = Wishlist::with('project.user:id,tagname,first_name,last_name,photo_url,email')->where('user_id', $user->id)->where('status', true)->latest()->get();
             $user = User::with(['skills', 'experiences', 'leaderboards'])->withCount(['new_notifications'])->findOrFail($user->id);

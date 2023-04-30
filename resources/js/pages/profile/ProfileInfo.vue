@@ -146,7 +146,7 @@ export default {
 
     badges: [
       { 'name': 'Top 5 Designer' },
-      { 'name': 'Best Student Review' },
+      { 'name': 'Best Consultant Review' },
       { 'name': 'Painter Specialist' }
     ]
   }),
@@ -176,7 +176,7 @@ export default {
       return socmeds
     },
 
-    theStudentHighestPoints () {
+    theConsultantHighestPoints () {
       if (this.user && this.user.leaderboards) {
         return Math.max(this.user.leaderboards.map(e => e.points))
       }
@@ -185,18 +185,18 @@ export default {
     },
 
     level () {
-      if (this.theStudentHighestPoints < 2501) return 'Rookie'
-      else if (this.theStudentHighestPoints < 7501) return 'Amateur'
-      else if (this.theStudentHighestPoints < 15001) return 'Superior'
+      if (this.theConsultantHighestPoints < 2501) return 'Rookie'
+      else if (this.theConsultantHighestPoints < 7501) return 'Amateur'
+      else if (this.theConsultantHighestPoints < 15001) return 'Superior'
 
       return 'Expert'
     },
 
     records () {
-      if (this.user.role === 'Student') {
+      if (this.user.role === 'Consultant') {
         return [
           { 'icon': 'bx:bxs-id-card', 'content': this.user.identity_number, 'type': 'icon' },
-          { 'icon': 'Pts', 'content': `${this.theStudentHighestPoints} Points Collected`, 'type': 'not-icon' },
+          { 'icon': 'Pts', 'content': `${this.theConsultantHighestPoints} Points Collected`, 'type': 'not-icon' },
           { 'icon': 'LVL', 'content': this.level, 'type': 'not-icon' },
           { 'icon': 'fa-solid:building', 'content': `${this.user.faculty}, ${this.user.university}`, 'type': 'icon' },
           { 'icon': 'ic:baseline-card-membership', 'content': `Joined since ${timeago.format(this.user.joined_since)}`, 'type': 'icon' },

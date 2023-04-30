@@ -22,7 +22,7 @@
         </div>
         <div v-else>
           <p>
-            You’re invited to join project: <span class="project-box__project-title">"{{ data.project_invitation.project.title }}”</span>. You can see the detail about the project by clicking the see project details on the button below. If you’re agree to join this project please notify the lecturer about your agreement. If you’re not interested joining the project please state the reason to the lecturer by sending a message.
+            You’re invited to join project: <span class="project-box__project-title">"{{ data.project_invitation.project.title }}”</span>. You can see the detail about the project by clicking the see project details on the button below. If you’re agree to join this project please notify the recruiter about your agreement. If you’re not interested joining the project please state the reason to the recruiter by sending a message.
           </p>
           <router-link class="project-box__project-link" :to="{ name: 'project.details', params: { id: data.project_invitation.project.project_url} }">
             <span>See Project Details</span>
@@ -43,7 +43,7 @@
 
     <div v-if="!$matchMedia.xl" v-show="show" class="project-box__bottom-container">
       <p>
-        You’re invited to join project: <span class="project-box__project-title">"{{ data.project_invitation.project.title }}”</span>. You can see the detail about the project by clicking the see project details on the button below. If you’re agree to join this project please notify the lecturer about your agreement. If you’re not interested joining the project please state the reason to the lecturer by sending a message.
+        You’re invited to join project: <span class="project-box__project-title">"{{ data.project_invitation.project.title }}”</span>. You can see the detail about the project by clicking the see project details on the button below. If you’re agree to join this project please notify the recruiter about your agreement. If you’re not interested joining the project please state the reason to the recruiter by sending a message.
       </p>
       <router-link class="project-box__project-link" :to="{ name: 'project.details', params: { id: data.project_invitation.project.project_url} }">
         <span>See Project Details</span>

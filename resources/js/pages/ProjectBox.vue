@@ -22,12 +22,12 @@
             {{ user.expertise }}
           </p>
 
-          <p v-if="user.role === 'Student'" class="inbox__info--available">
+          <p v-if="user.role === 'Consultant'" class="inbox__info--available">
             <span class="iconify inbox__info--expertise-icon" data-icon="carbon:dot-mark" />
             Available
           </p>
 
-          <p v-else-if="user.role === 'Lecturer'" class="inbox__info--verified">
+          <p v-else-if="user.role === 'Recruiter'" class="inbox__info--verified">
             <span class="iconify" data-icon="bi:shield-fill-check" width="15" height="15" />
             Verified
           </p>
@@ -148,7 +148,7 @@ export default {
     },
 
     filters () {
-      if (this.user.role === 'Student') {
+      if (this.user.role === 'Consultant') {
         return [
           { name: 'Waiting', count: 0 },
           { name: 'Accepted', count: 0 },

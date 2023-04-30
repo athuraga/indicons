@@ -1,4 +1,4 @@
-@keyframes studentRole {
+@keyframes consultantRole {
   0% {
     left: 50%;
   }
@@ -12,7 +12,7 @@
   }
 }
 
-@keyframes lecturerRole {
+@keyframes recruiterRole {
   0% {
     left: 0%;
   }
@@ -32,7 +32,7 @@
   justify-content: space-between;
   height: 100vh;
   min-height: 40rem;
-  background: url(/images/login-student.jpg);
+  background: url(/images/login-consultant.jpg);
   background-size: cover;
   background-position-y: -5vw;
   background-position-x: right;
@@ -132,23 +132,23 @@ input:checked + .login-radio--label {
   border-radius: 1rem;
 }
 
-.role--student {
-  animation: studentRole 0.3s var(--bezier) forwards;
+.role--consultant {
+  animation: consultantRole 0.3s var(--bezier) forwards;
 
   @include respon(xl) {
     animation: unset;
   }
 }
 
-.is-lecturer {
+.is-recruiter {
   // background: var(--red-glow) !important;
   // color: var(--dark-blue) !important;
 }
 
-.lecturer-bg {
+.recruiter-bg {
   // background: var(--red-glow) !important;
 
-  background: url(/images/login-lecturer.jpg);
+  background: url(/images/login-recruiter.jpg);
   background-size: cover;
   background-position-x: right;
   background-position-y: -25vw;
@@ -159,12 +159,12 @@ input:checked + .login-radio--label {
   }
 }
 
-.lecturer-color {
+.recruiter-color {
   color: #020201 !important;
 }
 
-.role--lecturer {
-  animation: lecturerRole 0.3s var(--bezier) forwards;
+.role--recruiter {
+  animation: recruiterRole 0.3s var(--bezier) forwards;
 
   @include respon(xl) {
     animation: unset;

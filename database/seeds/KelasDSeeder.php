@@ -55,10 +55,10 @@ class KelasDSeeder extends Seeder
             ],
             'UI/UX Designer' => [
                 'Detail-oriented and motivated UI/UX Designer with a comprehensive background and extensive experience in participating in all aspects of mobile software application development. Skilled in creating comprehensive user inteface, managing documents and records, and coordinating team members. Creative professional with great communication skills and important ability to work and perform well in a team.',
-                'I am a computer engineering student with passion in the areas of User Experience Design. I have a diverse experience investigating user goals and workflows through usability testing and user research processes, including: use cases, surveys, heuristic evaluations, workshops and contextual inquiry. This has gained me a solid knowledge of user interface and user experience design.',
+                'I am a computer engineering consultant with passion in the areas of User Experience Design. I have a diverse experience investigating user goals and workflows through usability testing and user research processes, including: use cases, surveys, heuristic evaluations, workshops and contextual inquiry. This has gained me a solid knowledge of user interface and user experience design.',
             ],
             'Data Expert' => [
-                'Hello! I am a software engineering student working on web applications and web infrastructure. I have been tinkering since I was a kid.  I have had experiences in help desk, graphic/web design, data analysis, data science and sysadmin/devops. I can help everywhere in the Although, I do think my strongest skills are in data engineering and server administration.',
+                'Hello! I am a software engineering consultant working on web applications and web infrastructure. I have been tinkering since I was a kid.  I have had experiences in help desk, graphic/web design, data analysis, data science and sysadmin/devops. I can help everywhere in the Although, I do think my strongest skills are in data engineering and server administration.',
                 'Motivated Data Scientist and Analyst with a demonstrated experience in improving software performance, buidling a predictive model using machine learning, and developing new software functionalities. Offers proven track record of extraordinary achievements, strong attention to detail, and ability to finish projects on schedule and within budget.',
             ]
             ];
@@ -130,7 +130,7 @@ class KelasDSeeder extends Seeder
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
                 'remember_token' => Str::random(10),
                 'tagname' => $list_kelas_d[$i-10]['tagname'],
-                'role' => 'Student',
+                'role' => 'Consultant',
                 'expertise' => $expertise,
                 'identity_number' => '1751502001110' . $i,
                 'university' => 'University of Brawijaya',

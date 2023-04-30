@@ -12,13 +12,13 @@ use App\TeamApplicant;
 use Faker\Factory as Faker;
 use Illuminate\Http\Request;
 
-class ProjectBoxLecturerController extends Controller
+class ProjectBoxRecruiterController extends Controller
 {
     public function cancelProjectInvitation(Request $request)
     {
         $user = $request->user();
 
-        if ($user->role === 'Lecturer') {
+        if ($user->role === 'Recruiter') {
             if ($request->post('individual_applicant_id')) {
                 IndividualApplicant::where('id', $request->post('individual_applicant_id'))->update(['status' => 'Applying']);
                 $individualApplicant = IndividualApplicant::where('id', $request->post('individual_applicant_id'))->first();
@@ -47,14 +47,14 @@ class ProjectBoxLecturerController extends Controller
 
     public function startProject(Request $request)
     {
-        $lecturer = $request->user();
+        $recruiter = $request->user();
 
-        if ($lecturer->role === 'Lecturer') {
+        if ($recruiter->role === 'Recruiter') {
             $project = Project::findOrFail($request->post('project_id'));
             $this->authorize('update', $project);
 
             $project->update(['status' => 'Ongoing', 'start_time' => now()]);
-            ProjectBox::where('project_id', $project->id)->where('user_id', $lecturer->id)->update(['status' => 'Ongoing']);
+            ProjectBox::where('project_id', $project->id)->where('user_id', $recruiter->id)->update(['status' => 'Ongoing']);
             ProjectBox::where(['project_id' => $project->id, 'status' => 'Waiting to Start'])->update(['status' => 'Project Started']);
             ProjectBox::where(['project_id' => $project->id])->whereNotIn('status', ['Project Started', 'Ongoing'])->update(['status' => 'Rejected']);
 
@@ -99,7 +99,7 @@ class ProjectBoxLecturerController extends Controller
             // $uniqueProjectTeamMembers = array_unique($projectTeamMembers);
             ProjectTeamMember::insert($projectTeamMembers);
 
-            $projectBoxes = ProjectBox::with('project.user')->where('user_id', $lecturer->id)->get();
+            $projectBoxes = ProjectBox::with('project.user')->where('user_id', $recruiter->id)->get();
 
             return response()->json([
                 'message' => 'Project Started',
@@ -129,7 +129,7 @@ class ProjectBoxLecturerController extends Controller
             'project_url' => implode('-', explode(' ', strtolower($projectUrl))) . '-' . $faker->regexify('[a-z0-9]{8}'),
         ]);
 
-        $projectBoxes = ProjectBox::lecturerProjectBoxes($user);
+        $projectBoxes = ProjectBox::recruiterProjectBoxes($user);
 
         return response()->json([
             'message' => "$project->title has been published.",
@@ -144,7 +144,7 @@ class ProjectBoxLecturerController extends Controller
         ProjectBox::where('project_id', $project->id)->delete();
         $project->delete();
 
-        $projectBoxes = ProjectBox::lecturerProjectBoxes($user);
+        $projectBoxes = ProjectBox::recruiterProjectBoxes($user);
 
         return response()->json([
             'message' => "$project->title has been cancelled.",
@@ -160,7 +160,7 @@ class ProjectBoxLecturerController extends Controller
         ProjectBox::where('project_id', $project->id)->delete();
         $project->delete();
 
-        $projectBoxes = ProjectBox::lecturerProjectBoxes($user);
+        $projectBoxes = ProjectBox::recruiterProjectBoxes($user);
 
         return response()->json([
             'message' => "$project->title has been cancelled.",
@@ -176,7 +176,7 @@ class ProjectBoxLecturerController extends Controller
         $project->update(['is_open_hiring' => false,]);
         ProjectBox::find($project->id)->update(['status' => 'Confirmation']);
 
-        $projectBoxes = ProjectBox::lecturerProjectBoxes($user);
+        $projectBoxes = ProjectBox::recruiterProjectBoxes($user);
 
         return response()->json([
             'message' => "$project->title hiring has been closed",

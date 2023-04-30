@@ -29,7 +29,7 @@ export default {
     }),
 
     projects () {
-      if (this.data.user.role === 'Student') {
+      if (this.data.user.role === 'Consultant') {
         return this.data.projects.map(e => e.project)
       }
 
