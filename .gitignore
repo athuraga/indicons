@@ -16,3 +16,4 @@ npm-debug.log
 yarn-error.log
 phpunit.dusk.xml
 *.code-workspace
+.vercel
